@@ -2,12 +2,19 @@
 
 class View
 {
+    protected $data = [];
 
-    public function assign($name, $value) {
-
+    public function assign($name, $value)
+    {
+        $this->data[$name] = $value;
+        return $this;
     }
 
-    public function display($template) {
-
+    public function display($template)
+    {
+        foreach ($this->data as $key => $value) {
+            $rec = $value;
+        }
+        echo $template;
     }
 }
