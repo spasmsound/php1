@@ -1,25 +1,41 @@
 <?php
-
+include __DIR__ . '/GuestBookRecord.php';
 class GuestBook
 {
-        public $path;
-        protected $data;
+    protected $path;
+    protected $data;
 
-        public function __construct($path)
-        {
-            $this->path = $path;
-            $this->data = file($path, FILE_IGNORE_NEW_LINES);
-        }
+    public function __construct()
+    {
+        $this->path = __DIR__ . '/../data/guest.txt';
+        $this->load();
+    }
 
-        public function getData() {
-            return $this->data;
+    public function load()
+    {
+        $this->data = [];
+        $lines = file($this->path, FILE_IGNORE_NEW_LINES);
+        foreach ($lines as $line) {
+            [$date, $message] = explode('###', $line);
+            $this->data[] = new GuestBookRecord($date, $message);
         }
+    }
 
-        public function append($text) {
-            $this->data[] = $text;
-        }
+    public function getAllRecords()
+    {
+        return $this->data;
+    }
 
-        public function save() {
-            file_put_contents($this->path, implode(PHP_EOL, $this->data));
+    public function add($record)
+    {
+        $this->data[] = $record;
+    }
+
+    public function save() {
+        $lines = [];
+        foreach ($this->data as $record) {
+            $lines[] = $record->getMessage();
         }
+        file_put_contents($this->path, implode(PHP_EOL, $lines));
+    }
 }

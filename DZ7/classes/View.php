@@ -7,14 +7,19 @@ class View
     public function assign($name, $value)
     {
         $this->data[$name] = $value;
-        return $this;
     }
 
     public function display($template)
     {
-        foreach ($this->data as $key => $value) {
-            $rec = $value;
-        }
-        echo $template;
+        include $template;
+    }
+
+    public function render($template)
+    {
+        ob_start();
+        include $template;
+        $contents = ob_get_contents();
+        ob_end_clean();
+        return $contents;
     }
 }
