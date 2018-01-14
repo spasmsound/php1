@@ -8,6 +8,7 @@ class View
     public function assign($name, $value)
     {
         $this->data[$name] = $value;
+        return $this;
     }
 
     public function display($template)
