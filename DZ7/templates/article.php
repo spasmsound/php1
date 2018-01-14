@@ -8,8 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<p>Заголовок:</p>
- <strong><?php echo $article->title; ?></strong>
+<p>Заголовок:</
+ <strong><?php
+     echo $article->title; ?></strong>
     <p><?php echo $article->article; ?></p>
 
 </body>
