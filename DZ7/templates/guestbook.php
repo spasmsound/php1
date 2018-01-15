@@ -14,14 +14,17 @@
 <?php
     foreach ($guestBook->getAllRecords() as $record) { ?>
         <article>
-            <strong>
-                <?php echo $record->getDate(); ?>
-            </strong>
              <?php echo $record->getMessage() ?>
             <hr>
         </article>
     <?php }
 ?>
+
+<form action="/php1/DZ7/addRecord.php" method="post">
+    <label for="newCom">Добавить комментарий:</label>
+    <input type="text" name="newComment" id="newCom">
+    <input type="submit">
+</form>
 
 </body>
 </html>

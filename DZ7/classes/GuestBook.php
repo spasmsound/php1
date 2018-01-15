@@ -16,8 +16,7 @@ class GuestBook
         $this->data = [];
         $lines = file($this->path, FILE_IGNORE_NEW_LINES);
         foreach ($lines as $line) {
-            [$date, $message] = explode('###', $line);
-            $this->data[] = new GuestBookRecord($date, $message);
+            $this->data[] = new GuestBookRecord($line);
         }
     }
 

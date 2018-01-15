@@ -3,6 +3,10 @@
 include __DIR__ . '/classes/View.php';
 include __DIR__ . '/classes/News.php';
 
+if (empty($_GET['id'])) {
+    die;
+}
+
 $article = (new News())->getAllNews()[$_GET['id']];
 
 

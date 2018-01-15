@@ -8,7 +8,7 @@ class View
     public function assign($name, $value)
     {
         $this->data[$name] = $value;
-        return $this;
+        return $this;//вернет текущий объект. Также появляется возможность использовать текучий интерфейс.
     }
 
     public function display($template)

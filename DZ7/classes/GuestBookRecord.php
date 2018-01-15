@@ -3,17 +3,10 @@
 class GuestBookRecord
 {
     protected $message;
-    protected $date;
 
-    public function __construct($date, $message)
+    public function __construct($message)
     {
         $this->message = $message;
-        $this->date = $date;
-    }
-
-    public function getDate()
-    {
-        return $this->date;
     }
 
     public function getMessage()
