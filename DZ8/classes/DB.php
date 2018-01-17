@@ -1,5 +1,5 @@
 <?php
-
+$cfg = include __DIR__ . '/../config/config.php';
 class DB
 {
 
@@ -9,8 +9,9 @@ class DB
 
     public function __construct()
     {
-        $this->dsn = 'mysql:host=localhost;dbname=test';
-        $this->dbh = new PDO($this->dsn, 'root', 'php1');
+        $cfg = require __DIR__ . '/../config/config.php';
+        $this->dsn = 'mysql:host=' . $cfg['host'] . ';dbname=' . $cfg['dbName'];
+        $this->dbh = new PDO($this->dsn, $cfg['login'], $cfg['password']);
     }
 
     public function execute(string $sql)
@@ -19,5 +20,4 @@ class DB
             return true;
         }else return false;
     }
-
 }
