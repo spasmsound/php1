@@ -1,7 +1,8 @@
 <?php
 return [
     'host' => 'localhost',
-    'dbName' => 'news',
+    'dbname' => 'news',
     'login' => 'root',
     'password' => 'php1',
+    'code' => 'utf8',
 ];

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ru">
 <head>
@@ -10,11 +9,11 @@
 </head>
 <body>
 
-<h1>Новости</h1>
-<?php foreach ($news->getAllNews() as $key => $article) { ?>
+<?php foreach($news as $article ) { ?>
     <article>
-        <a href="/php1/DZ7/article.php?id=<?php echo $key?>"><?php echo $article->getTitle(); ?></a>
-        <p><?php echo $article->getShortArticle() ?></p>
+        <h1><a href="/php1/DZ8/article.php?id=<?php echo $article['id']; ?>"><?php echo $article['Title']; ?></a></h1>
+        <p><?php echo $article['Text']; ?></p>
+        <p>Автор: <?php echo $article['Author']; ?></p>
         <hr>
     </article>
 <?php } ?>

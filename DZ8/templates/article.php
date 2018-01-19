@@ -8,9 +8,13 @@
     <title>Document</title>
 </head>
 <body>
- <h1><?php echo $article->title; ?></h1>
- <hr>
-    <p><?php echo $article->article; ?></p>
+
+<article>
+    <h1><?php echo $article[0]['Title']?></h1>
+    <p><?php echo $article[0]['Text']?></p>
+    <hr>
+    <p>Автор: <?php echo $article[0]['Author']?></p>
+</article>
 
 </body>
 </html>
